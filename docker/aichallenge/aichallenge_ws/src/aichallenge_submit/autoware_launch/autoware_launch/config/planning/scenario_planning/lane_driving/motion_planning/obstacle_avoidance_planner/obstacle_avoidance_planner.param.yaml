@@ -89,11 +89,11 @@
         soft_collision_free_weight: 1000.0        # soft weight for lateral error around the middle point
 
         # tracking error
-        lat_error_weight: 1.0       # weight for lateral error
+        lat_error_weight: 0.0       # weight for lateral error 1.0
         yaw_error_weight: 0.0       # weight for yaw error
         yaw_error_rate_weight: 0.0  # weight for yaw error rate
-        steer_input_weight: 1.0     # weight for steering input
-        steer_rate_weight: 1.0      # weight for steering rate
+        steer_input_weight: 0.0     # weight for steering input 1.0
+        steer_rate_weight: 0.0      # weight for steering rate 1.0
 
         terminal_lat_error_weight: 100.0  # weight for lateral error at terminal point
         terminal_yaw_error_weight: 100.0  # weight for yaw error at terminal point
@@ -109,8 +109,8 @@
 
         weight:
           lat_error_weight: 0.0     # weight for lateral error
-          yaw_error_weight: 10.0    # weight for yaw error
-          steer_input_weight: 100.0 # weight for yaw error
+          yaw_error_weight: 0.0    # weight for yaw error 10.0
+          steer_input_weight: 0.0 # weight for yaw error 100.0
 
       # collision free constraint for optimization
       collision_free_constraints:

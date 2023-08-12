@@ -3,8 +3,8 @@
     verbose: false
 
     planning_hz: 10.0
-    backward_path_length: 5.0
-    forward_path_length: 300.0
+    backward_path_length: 0.0    # 元々5.0 経路生成の際にどれくらい先までの経路を生成するかを変えることができ
+    forward_path_length: 20.0    # 元々300.0
     backward_length_buffer_for_end_of_pull_over: 5.0
     backward_length_buffer_for_end_of_pull_out: 5.0
     minimum_pull_over_length: 16.0
@@ -14,17 +14,19 @@
     # parameters for turn signal decider
     turn_signal_intersection_search_distance: 30.0
     turn_signal_intersection_angle_threshold_deg: 15.0 
-    turn_signal_minimum_search_distance: 10.0 
-    turn_signal_search_time: 3.0 
-    turn_signal_shift_length_threshold: 0.3 
+    turn_signal_minimum_search_distance: 1.0 # 元々10.0
+    turn_signal_search_time: 1.0 # 元々3.0
+    turn_signal_shift_length_threshold: 0.1 # 元々0.3
     turn_signal_on_swerving: true
 
-    path_interval: 2.0 
+    # 経路を生成する時の解像度に関するパラメータ
+    # 大きいと荒すぎる経路が生成されるが、小さすぎると計算コストが高くなってしまう。
+    path_interval: 0.1   #元々2.0
 
     visualize_maximum_drivable_area: true
 
-    lateral_distance_max_threshold: 2.0
-    longitudinal_distance_min_threshold: 3.0
+    lateral_distance_max_threshold: 1.5 # 元々2.0
+    longitudinal_distance_min_threshold: 1.0 # 元々3.0
 
     expected_front_deceleration: -1.0
     expected_rear_deceleration: -1.0
