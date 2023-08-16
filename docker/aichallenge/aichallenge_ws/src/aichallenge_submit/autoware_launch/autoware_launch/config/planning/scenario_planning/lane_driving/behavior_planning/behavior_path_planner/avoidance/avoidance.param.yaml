@@ -53,7 +53,7 @@
         # filtering parking objects
         threshold_distance_object_is_on_center: 0.0     # [m] 元々1.0
         object_check_shiftable_ratio: 0.0               # [-] 元々0.6
-        object_check_min_road_shoulder_width: 0.50      # [m]　元々0.5
+        object_check_min_road_shoulder_width: 0.0      # [m]　元々0.5
         # lost object compensation
         object_last_seen_threshold: 2.0
 

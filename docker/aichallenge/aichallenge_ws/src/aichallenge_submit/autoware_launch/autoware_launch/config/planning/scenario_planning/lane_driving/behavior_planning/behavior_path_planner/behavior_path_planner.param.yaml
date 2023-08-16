@@ -44,36 +44,36 @@
     # Change the 'enable_module' flag for the following modules to 'false' to try Autoware-Mini
 
     lane_change:
-      # enable_module: true
-      enable_module: false
+      enable_module: true
+      # enable_module: false
       enable_simultaneous_execution: false
       priority: 4
       max_module_size: 1
 
     pull_out:
-      # enable_module: true
-      enable_module: false
+      enable_module: true
+      # enable_module: false
       enable_simultaneous_execution: false
-      priority: 0
+      priority: 1 # 元々0
       max_module_size: 1
 
     side_shift:
-      # enable_module: true
-      enable_module: false
+      enable_module: true
+      # enable_module: false
       enable_simultaneous_execution: false
-      priority: 2
+      priority: 3 # 元々2
       max_module_size: 1
 
     pull_over:
-      # enable_module: true
-      enable_module: false
+      enable_module: true
+      # enable_module: false
       enable_simultaneous_execution: false
-      priority: 1
+      priority: 2  # 元々1
       max_module_size: 1
 
     avoidance:
-      # enable_module: true
-      enable_module: false
+      enable_module: true
+      # enable_module: false
       enable_simultaneous_execution: false
-      priority: 3
+      priority: 0 #　元々3
       max_module_size: 1
