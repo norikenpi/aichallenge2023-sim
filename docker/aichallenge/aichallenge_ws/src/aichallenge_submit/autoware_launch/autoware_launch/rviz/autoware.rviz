@@ -1459,7 +1459,7 @@ Visualization Manager:
                             Value: /planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/run_out
                           Value: false
                         - Class: rviz_default_plugins/MarkerArray
-                          Enabled: false
+                          Enabled: true
                           Name: Avoidance
                           Namespaces:
                             {}
@@ -1542,7 +1542,7 @@ Visualization Manager:
                             Reliability Policy: Reliable
                             Value: /planning/scenario_planning/lane_driving/behavior_planning/behavior_velocity_planner/debug/speed_bump
                           Value: false
-                      Enabled: false
+                      Enabled: true
                       Name: DebugMarker
                   Enabled: true
                   Name: BehaviorPlanning
@@ -1721,7 +1721,7 @@ Visualization Manager:
                           Enabled: false
                           Name: ObstacleCruise
                         - Class: rviz_default_plugins/MarkerArray
-                          Enabled: false
+                          Enabled: true
                           Name: ObstacleAvoidance
                           Namespaces:
                             {}
@@ -1732,7 +1732,7 @@ Visualization Manager:
                             Reliability Policy: Reliable
                             Value: /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker
                           Value: false
-                      Enabled: false
+                      Enabled: true
                       Name: DebugMarker
                   Enabled: true
                   Name: MotionPlanning
