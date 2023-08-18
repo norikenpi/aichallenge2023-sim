@@ -17,7 +17,7 @@
     </include>
 
     <include file="$(find-pkg-share initialpose_publisher)/launch/initialpose_publisher.launch.xml" />
-    <timer period="150.0">
-      <include file="$(find-pkg-share self_driving_controller)/launch/self_driving_controller.launch.xml" />
-    </timer>
+
+    <include file="$(find-pkg-share self_driving_controller)/launch/self_driving_controller.launch.xml" />
+
 </launch>
