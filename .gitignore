@@ -11,3 +11,5 @@ AWSIM
 mapfile
 
 result.json
+
+docker/evaluation/
