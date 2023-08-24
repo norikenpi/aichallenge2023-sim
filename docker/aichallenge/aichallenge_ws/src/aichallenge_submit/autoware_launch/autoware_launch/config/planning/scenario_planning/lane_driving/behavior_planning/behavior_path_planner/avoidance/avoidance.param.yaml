@@ -2,13 +2,14 @@
 /**:
   ros__parameters:
     avoidance:
-      resample_interval_for_planning: 0.3               # [m]
-      resample_interval_for_output: 4.0                 # [m]
+    # ここだけ変更すると回避しなくなる
+      resample_interval_for_planning: 0.3               # [m] 0.3 0.05
+      resample_interval_for_output: 4.0                 # [m] 4.0 0.1
       detection_area_right_expand_dist: 0.0             # [m]
-      detection_area_left_expand_dist: 1.0              # [m]
+      detection_area_left_expand_dist: 0.0              # [m] 1.0 0.0
       drivable_area_right_bound_offset: 0.0             # [m]
       drivable_area_left_bound_offset: 0.0              # [m]
-      object_envelope_buffer: 0.3                       # [m]
+      object_envelope_buffer: 0.3                       # [m] 0.3 1.1
 
       # avoidance module common setting
       enable_bound_clipping: false
@@ -21,7 +22,7 @@
       disable_path_update: false
 
       # for debug
-      publish_debug_marker: false
+      publish_debug_marker: true # false true
       print_debug_info: false
 
       # avoidance is performed for the object type with true
@@ -30,56 +31,58 @@
         truck: true
         bus: true
         trailer: true
-        unknown: false
+        unknown: false # true
         bicycle: false
         motorcycle: false
         pedestrian: false
 
       # For target object filtering
       target_filtering:
+      #ここだけ変更すると2つ目まで回避する
         # filtering moving objects
         threshold_speed_object_is_stopped: 1.0          # [m/s]
         threshold_time_object_is_moving: 1.0            # [s]
         threshold_time_force_avoidance_for_stopped_vehicle: 10.0 # [s]
         # detection range
-        object_check_force_avoidance_clearance: 30.0    # [m]
-        object_check_forward_distance: 150.0            # [m]
-        object_check_backward_distance: 2.0             # [m]
+        object_check_force_avoidance_clearance: 1.0    # [m] 30.0 1.0
+        object_check_forward_distance: 10.0            # [m] 150.0 10.0
+        object_check_backward_distance: 0.0             # [m] 2.0 0.0
         object_check_goal_distance: 20.0                # [m]
         # filtering parking objects
-        threshold_distance_object_is_on_center: 1.0     # [m]
-        object_check_shiftable_ratio: 0.6               # [-]
-        object_check_min_road_shoulder_width: 0.5       # [m]
+        threshold_distance_object_is_on_center: 0.0     # [m] 1.0 0.0
+        object_check_shiftable_ratio: 0.0               # [-] 0.6 0.0
+        object_check_min_road_shoulder_width: 0.0       # [m] 0.5 0.0
         # lost object compensation
         object_last_seen_threshold: 2.0
 
       # For safety check
       safety_check:
-        safety_check_backward_distance: 100.0            # [m]
-        safety_check_time_horizon: 10.0                  # [s]
+        safety_check_backward_distance: 100.0            # [m] 
+        safety_check_time_horizon: 10.0                  # [s] 
         safety_check_idling_time: 1.5                    # [s]
         safety_check_accel_for_rss: 2.5                  # [m/ss]
         safety_check_hysteresis_factor: 2.0              # [-]
 
       # For avoidance maneuver
       avoidance:
+      #1つ目まで回避
         # avoidance lateral parameters
         lateral:
-          lateral_collision_margin: 1.0                 # [m]
-          lateral_collision_safety_buffer: 0.7          # [m]
+          lateral_collision_margin: 1.0                 # [m] 1.0 0.1
+          lateral_collision_safety_buffer: 0.7          # [m] 0.7 0.1
           lateral_passable_safety_buffer: 0.0           # [m]
-          road_shoulder_safety_margin: 0.3              # [m]
-          avoidance_execution_lateral_threshold: 0.499
+          road_shoulder_safety_margin: 0.3              # [m] 0.3 0.0
+          avoidance_execution_lateral_threshold: 0.1    # 0.499 0.0
           max_right_shift_length: 5.0
           max_left_shift_length: 5.0
         # avoidance distance parameters
         longitudinal:
-          prepare_time: 2.0                             # [s]
+          prepare_time: 2.0                             # [s] 2.0 0.0
           longitudinal_collision_safety_buffer: 0.0     # [m]
-          min_prepare_distance: 1.0                     # [m]
-          min_avoidance_distance: 10.0                  # [m]
-          min_nominal_avoidance_speed: 7.0              # [m/s]
-          min_sharp_avoidance_speed: 1.0                # [m/s]
+          min_prepare_distance: 1.0                     # [m] 1.0 0.0
+          min_avoidance_distance: 10.0                  # [m] 10.0 0.0
+          min_nominal_avoidance_speed: 7.0              # [m/s] 7.0 1.0
+          min_sharp_avoidance_speed: 1.0               # [m/s] 1.0 0.8 
 
       # For yield maneuver
       yield:
@@ -87,6 +90,7 @@
 
       # For stop maneuver
       stop:
+      # 1つ目まで回避
         min_distance: 10.0                              # [m]
         max_distance: 20.0                              # [m]
 
@@ -96,8 +100,8 @@
 
         # lateral constraints
         lateral:
-          nominal_lateral_jerk: 0.2                     # [m/s3]
-          max_lateral_jerk: 1.0                         # [m/s3]
+          nominal_lateral_jerk: 10.0                     # [m/s3] 0.2 10.0
+          max_lateral_jerk: 15.0                         # [m/s3] 1.0 15.0
 
         # longitudinal constraints
         longitudinal:

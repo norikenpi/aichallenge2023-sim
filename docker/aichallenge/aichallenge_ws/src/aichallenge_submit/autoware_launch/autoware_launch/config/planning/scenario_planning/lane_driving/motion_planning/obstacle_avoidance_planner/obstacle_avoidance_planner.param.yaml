@@ -73,7 +73,7 @@
 
       # kinematics:
         # If this parameter is commented out, the parameter is set as below by default.
-        # The logic could be `optimization_center_offset = vehicle_info.wheelbase * 0.8`
+        # The logic could be optimization_center_offset = vehicle_info.wheelbase * 0.8
         # The 0.8 scale is adopted as it performed the best.
         # optimization_center_offset: 2.3 # optimization center offset from base link
 
@@ -89,11 +89,11 @@
         soft_collision_free_weight: 1000.0        # soft weight for lateral error around the middle point
 
         # tracking error
-        lat_error_weight: 1.0       # weight for lateral error
+        lat_error_weight: 0.0       # 1.0 0.0 weight for lateral error
         yaw_error_weight: 0.0       # weight for yaw error
         yaw_error_rate_weight: 0.0  # weight for yaw error rate
-        steer_input_weight: 1.0     # weight for steering input
-        steer_rate_weight: 1.0      # weight for steering rate
+        steer_input_weight: 0.0     # 1.0 0.0 weight for steering input
+        steer_rate_weight: 0.0      # 1.0 0.0 weight for steering rate
 
         terminal_lat_error_weight: 100.0  # weight for lateral error at terminal point
         terminal_yaw_error_weight: 100.0  # weight for yaw error at terminal point
@@ -109,8 +109,8 @@
 
         weight:
           lat_error_weight: 0.0     # weight for lateral error
-          yaw_error_weight: 10.0    # weight for yaw error
-          steer_input_weight: 100.0 # weight for yaw error
+          yaw_error_weight: 0.0    # 10.0 0.0 weight for yaw error
+          steer_input_weight: 0.0 # 100.0 0.0 weight for yaw error
 
       # collision free constraint for optimization
       collision_free_constraints:
