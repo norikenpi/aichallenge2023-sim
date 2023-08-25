@@ -40,12 +40,12 @@
       target_filtering:
       #ここだけ変更すると2つ目まで回避する
         # filtering moving objects
-        threshold_speed_object_is_stopped: 0.001          # [m/s] 1.0　動いているかどうか
-        threshold_time_object_is_moving: 0.001            # [s] 1.0　チャタリング防止
+        threshold_speed_object_is_stopped: 0.01          # [m/s] 1.0　動いているかどうか
+        threshold_time_object_is_moving: 10.0            # [s] 1.0　チャタリング防止
         threshold_time_force_avoidance_for_stopped_vehicle: 10.0 # [s]
         # detection range
-        object_check_force_avoidance_clearance: 1.0    # [m] 30.0 1.0
-        object_check_forward_distance: 10.0            # [m] 150.0 10.0
+        object_check_force_avoidance_clearance: 40.0    # [m] 30.0 1.0
+        object_check_forward_distance: 40.0            # [m] 150.0 10.0
         object_check_backward_distance: 0.0             # [m] 2.0 0.0
         object_check_goal_distance: 20.0                # [m]
         # filtering parking objects
@@ -69,7 +69,7 @@
         # avoidance lateral parameters ここら辺のパラメータの説明はある
         lateral:
           lateral_collision_margin: 0.0                 # [m] 1.0 0.1
-          lateral_collision_safety_buffer: 0.5          # [m] 0.7 0.1 最終防衛ライン．車幅の半分推奨．
+          lateral_collision_safety_buffer: 0.6          # [m] 0.7 0.1 最終防衛ライン．車幅の半分推奨．
           lateral_passable_safety_buffer: 0.0           # [m]
           road_shoulder_safety_margin: 0.0              # [m] 0.3 0.0
           avoidance_execution_lateral_threshold: 0.0    # 0.499 0.0 回避を実行するための、現在の進路と回避提案地点との間の横方向の距離偏差閾値。
@@ -91,7 +91,7 @@
       # For stop maneuver 回避操作が許可されていない状況、または操作における最低停止距離。
       stop:
         min_distance: 1.0                              # [m] 10.0 
-        max_distance: 20.0                              # [m]
+        max_distance: 2.0                              # [m]
 
       constraints:
         # vehicle slows down under longitudinal constraints 各ポイントでの速度を設定するに当たって，制約を設定する．
@@ -101,7 +101,7 @@
         # 1つ目まで回避
         # nominalは障害物までの距離が遠いときの設定
         lateral:
-          nominal_lateral_jerk: 2.5                     # [m/s3] 0.2 10.0
+          nominal_lateral_jerk: 0.2                     # [m/s3] 0.2 10.0
           max_lateral_jerk: 2.5                         # [m/s3] 1.0 15.0
 
         # longitudinal constraints
