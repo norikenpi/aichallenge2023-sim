@@ -12,13 +12,13 @@
       object_envelope_buffer: 0.0                       # [m] 0.3 1.1
 
       # avoidance module common setting
-      enable_bound_clipping: false
+      enable_bound_clipping: false #　drivable areaを編集するか
       enable_avoidance_over_same_direction: true
       enable_avoidance_over_opposite_direction: true
       enable_update_path_when_object_is_gone: false
       enable_force_avoidance_for_stopped_vehicle: false
-      enable_safety_check: false
-      enable_yield_maneuver: false
+      enable_safety_check: false # safety checkを行うかどうか
+      enable_yield_maneuver: false # yield maneuverを行うかどうか
       disable_path_update: false
 
       # for debug
@@ -36,12 +36,12 @@
         motorcycle: false
         pedestrian: false
 
-      # For target object filtering
+      # For target object filtering 回避対象は静止物に限る
       target_filtering:
       #ここだけ変更すると2つ目まで回避する
         # filtering moving objects
-        threshold_speed_object_is_stopped: 0.001          # [m/s] 1.0
-        threshold_time_object_is_moving: 0.001            # [s] 1.0
+        threshold_speed_object_is_stopped: 0.001          # [m/s] 1.0　動いているかどうか
+        threshold_time_object_is_moving: 0.001            # [s] 1.0　チャタリング防止
         threshold_time_force_avoidance_for_stopped_vehicle: 10.0 # [s]
         # detection range
         object_check_force_avoidance_clearance: 1.0    # [m] 30.0 1.0
@@ -50,18 +50,18 @@
         object_check_goal_distance: 20.0                # [m]
         # filtering parking objects
         threshold_distance_object_is_on_center: 0.0     # [m] 1.0 0.0
-        object_check_shiftable_ratio: 0.0               # [-] 0.6 0.0
+        object_check_shiftable_ratio: 0.0               # [-] 0.6 0.0 物体が路肩に近ければ近いほど，比率の値は大きくなる．shiftable_ratioと比較する．
         object_check_min_road_shoulder_width: 0.0       # [m] 0.5 0.0
         # lost object compensation
-        object_last_seen_threshold: 2.0 # 2.0 一度認識した障害物の保持
+        object_last_seen_threshold: 2.0 # 2.0 一度認識した障害物の保持　0なら認識結果は100%信頼できる．
 
-      # For safety check
+      # For safety check　enable_safety_check: false 関係なし
       safety_check:
         safety_check_backward_distance: 100.0            # [m] 
         safety_check_time_horizon: 10.0                  # [s] 
         safety_check_idling_time: 1.5                    # [s]
         safety_check_accel_for_rss: 2.5                  # [m/ss]
-        safety_check_hysteresis_factor: 2.0              # [-]
+        safety_check_hysteresis_factor: 2.0              # [-]　
 
       # For avoidance maneuver
       avoidance:
@@ -84,11 +84,11 @@
           min_nominal_avoidance_speed: 0.1              # [m/s] 7.0 1.0
           min_sharp_avoidance_speed: 0.1               # [m/s] 1.0 0.8 
 
-      # For yield maneuver 
+      # For yield maneuver 　enable_yield_maneuver: false　関係なし
       yield:
         yield_velocity: 0.1                            # [m/s] 2.78
 
-      # For stop maneuver 回避操作が許可されていない状況、または降伏操作における最低停止距離。
+      # For stop maneuver 回避操作が許可されていない状況、または操作における最低停止距離。
       stop:
         min_distance: 1.0                              # [m] 10.0 
         max_distance: 20.0                              # [m]
