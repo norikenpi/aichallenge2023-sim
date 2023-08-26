@@ -3,8 +3,8 @@
   ros__parameters:
     avoidance:
     # ここだけ変更すると回避しなくなる
-      resample_interval_for_planning: 0.05               # [m] 0.3 0.05
-      resample_interval_for_output: 0.1                 # [m] 4.0 0.1
+      resample_interval_for_planning: 0.3               # [m] 0.3 0.05
+      resample_interval_for_output: 4.0                 # [m] 4.0 0.1
       detection_area_right_expand_dist: 0.0             # [m]
       detection_area_left_expand_dist: 0.0              # [m] 1.0 0.0
       drivable_area_right_bound_offset: 0.0             # [m]
@@ -71,7 +71,7 @@
           lateral_collision_margin: 0.0                 # [m] 1.0 0.1
           lateral_collision_safety_buffer: 0.6          # [m] 0.7 0.1 最終防衛ライン．車幅の半分推奨．
           lateral_passable_safety_buffer: 0.0           # [m]
-          road_shoulder_safety_margin: 0.0              # [m] 0.3 0.0
+          road_shoulder_safety_margin: 0.2              # [m] 0.3 0.0
           avoidance_execution_lateral_threshold: 0.0    # 0.499 0.0 回避を実行するための、現在の進路と回避提案地点との間の横方向の距離偏差閾値。
           max_right_shift_length: 5.0 # 5.0
           max_left_shift_length: 5.0 # 5.0
@@ -102,7 +102,7 @@
         # nominalは障害物までの距離が遠いときの設定
         lateral:
           nominal_lateral_jerk: 0.2                     # [m/s3] 0.2 10.0
-          max_lateral_jerk: 2.5                         # [m/s3] 1.0 15.0
+          max_lateral_jerk: 2.0                         # [m/s3] 1.0 15.0
 
         # longitudinal constraints
         longitudinal:

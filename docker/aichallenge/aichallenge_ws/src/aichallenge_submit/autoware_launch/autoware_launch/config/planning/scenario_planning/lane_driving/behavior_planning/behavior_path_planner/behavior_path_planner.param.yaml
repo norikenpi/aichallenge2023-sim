@@ -19,7 +19,7 @@
     turn_signal_shift_length_threshold: 0.1 # 0.3
     turn_signal_on_swerving: true
  
-    path_interval: 0.1 # 2.0
+    path_interval: 2.0 # 2.0
 
     visualize_maximum_drivable_area: true
 
