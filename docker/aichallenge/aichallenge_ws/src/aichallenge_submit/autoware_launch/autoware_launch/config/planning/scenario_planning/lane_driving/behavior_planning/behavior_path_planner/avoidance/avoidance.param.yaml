@@ -90,8 +90,8 @@
 
       # For stop maneuver 回避操作が許可されていない状況、または操作における最低停止距離。
       stop:
-        min_distance: 1.0                              # [m] 10.0 
-        max_distance: 2.0                              # [m]
+        min_distance: 8.4                              # [m] 10.0 
+        max_distance: 8.5                              # [m] ここで最初の停止をコントロールできる
 
       constraints:
         # vehicle slows down under longitudinal constraints 各ポイントでの速度を設定するに当たって，制約を設定する．
