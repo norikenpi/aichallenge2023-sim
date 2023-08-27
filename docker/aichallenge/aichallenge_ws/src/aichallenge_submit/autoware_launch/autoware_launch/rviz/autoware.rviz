@@ -1934,7 +1934,7 @@ Visualization Manager:
                           Enabled: false
                           Name: ObstacleCruise
                         - Class: rviz_default_plugins/MarkerArray
-                          Enabled: false
+                          Enabled: true
                           Name: ObstacleAvoidance
                           Namespaces:
                             {}
@@ -1945,7 +1945,7 @@ Visualization Manager:
                             Reliability Policy: Reliable
                             Value: /planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/debug/marker
                           Value: false
-                      Enabled: false
+                      Enabled: true
                       Name: DebugMarker
                   Enabled: true
                   Name: MotionPlanning
