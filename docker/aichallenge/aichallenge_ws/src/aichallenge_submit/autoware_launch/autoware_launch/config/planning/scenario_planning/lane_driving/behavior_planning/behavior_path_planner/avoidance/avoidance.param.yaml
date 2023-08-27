@@ -68,7 +68,7 @@
       #1つ目まで回避
         # avoidance lateral parameters ここら辺のパラメータの説明はある
         lateral:
-          lateral_collision_margin: 0.0                 # [m] 1.0 0.1
+          lateral_collision_margin: 0.2                 # [m] 1.0 0.1
           lateral_collision_safety_buffer: 0.6          # [m] 0.7 0.1 最終防衛ライン．車幅の半分推奨．
           lateral_passable_safety_buffer: 0.0           # [m]
           road_shoulder_safety_margin: 0.2              # [m] 0.3 0.0
@@ -90,8 +90,8 @@
 
       # For stop maneuver 回避操作が許可されていない状況、または操作における最低停止距離。
       stop:
-        min_distance: 8.4                              # [m] 10.0 
-        max_distance: 8.5                              # [m] ここで最初の停止をコントロールできる
+        min_distance: 1.0                              # [m] 10.0 
+        max_distance: 2.0                              # [m] ここで最初の停止をコントロールできる
 
       constraints:
         # vehicle slows down under longitudinal constraints 各ポイントでの速度を設定するに当たって，制約を設定する．
