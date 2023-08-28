@@ -7,7 +7,7 @@
       resample_interval_for_output: 4.0                 # [m] 4.0 0.1
       detection_area_right_expand_dist: 0.0             # [m]
       detection_area_left_expand_dist: 0.0              # [m] 1.0 0.0
-      drivable_area_right_bound_offset: 0.0             # [m]
+      drivable_area_right_bound_offset: -0.6             # [m]
       drivable_area_left_bound_offset: 0.0              # [m]
       object_envelope_buffer: 0.0                       # [m] 0.3 1.1
 
