@@ -7,7 +7,7 @@
       resample_interval_for_output: 4.0                 # [m] 4.0 0.1
       detection_area_right_expand_dist: 0.0             # [m]
       detection_area_left_expand_dist: 0.0              # [m] 1.0 0.0
-      drivable_area_right_bound_offset: -0.6             # [m]
+      drivable_area_right_bound_offset: 0.0             # [m]
       drivable_area_left_bound_offset: 0.0              # [m]
       object_envelope_buffer: 0.0                       # [m] 0.3 1.1
 
@@ -68,7 +68,7 @@
       #1つ目まで回避
         # avoidance lateral parameters ここら辺のパラメータの説明はある
         lateral:
-          lateral_collision_margin: 0.2                 # [m] 1.0 0.1
+          lateral_collision_margin: 0.0                 # [m] 1.0 0.1
           lateral_collision_safety_buffer: 0.6          # [m] 0.7 0.1 最終防衛ライン．車幅の半分推奨．
           lateral_passable_safety_buffer: 0.0           # [m]
           road_shoulder_safety_margin: 0.2              # [m] 0.3 0.0
