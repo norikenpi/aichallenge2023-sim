@@ -66,7 +66,8 @@ def launch_setup(context, *args, **kwargs):
         name="controller_node_exe",
         namespace="trajectory_follower",
         remappings=[
-            ("~/input/reference_trajectory", "/planning/scenario_planning/trajectory"),
+            # ("~/input/reference_trajectory", "/planning/scenario_planning/trajectory"),
+            ("~/input/reference_trajectory", "/planning/scenario_planning/trajectory2"),
             ("~/input/current_odometry", "/localization/kinematic_state"),
             ("~/input/current_steering", "/vehicle/status/steering_status"),
             ("~/input/current_accel", "/localization/acceleration"),
