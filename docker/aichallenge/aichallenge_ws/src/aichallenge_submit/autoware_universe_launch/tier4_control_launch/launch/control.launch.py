@@ -25,6 +25,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.actions import LoadComposableNodes
 from launch_ros.actions import PushRosNamespace
+from launch_ros.actions import Node
 from launch_ros.descriptions import ComposableNode
 from launch_ros.substitutions import FindPackageShare
 import yaml
@@ -90,6 +91,8 @@ def launch_setup(context, *args, **kwargs):
         ],
         extra_arguments=[{"use_intra_process_comms": LaunchConfiguration("use_intra_process")}],
     )
+
+
 
     # lane departure checker
     lane_departure_component = ComposableNode(
@@ -328,4 +331,9 @@ def generate_launch_description():
             set_container_mt_executable,
         ]
         + [OpaqueFunction(function=launch_setup)]
+         + [Node(
+            package="hello",
+            namespace="hello",
+            executable="hello_node",
+        )]
     )

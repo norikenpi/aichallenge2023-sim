@@ -9,12 +9,14 @@ class GoStraightAhead(Node):
     def __init__(self) -> None:
         super().__init__("control_cmd_subscriber")
 
+        # パブリッシャーの生成
         self.pub = self.create_publisher(
             AckermannControlCommand,
             "/control/trajectory_follower/control_cmd",
             10,
         )
 
+        # サブスクライバーの生成
         self.sub = self.create_subscription(
             Trajectory,
             "/planning/scenario_planning/trajectory",
@@ -23,6 +25,7 @@ class GoStraightAhead(Node):
         )
         self.sub
 
+    # サブスクライブ時に呼ばれる
     def listener_callback(self, msg: Trajectory):
         print(msg)
         cmd = AckermannControlCommand()
@@ -37,9 +40,13 @@ def main(args=None):
 
     minimal_subscriber = GoStraightAhead()
 
+    # ノード終了の待機
     rclpy.spin(minimal_subscriber)
 
+    # ノードの破棄
     minimal_subscriber.destroy_node()
+
+    # RCLのシャットダウン
     rclpy.shutdown()
 
 
