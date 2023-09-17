@@ -331,9 +331,10 @@ def generate_launch_description():
             set_container_mt_executable,
         ]
         + [OpaqueFunction(function=launch_setup)]
-         + [Node(
+        + [Node(
             package="hello",
             namespace="hello",
             executable="hello_node",
         )]
+
     )
